@@ -312,7 +312,7 @@ if(isset($previousId))
         .makeclean($previoustitle)."'> &lt; </a>";
 
 $titlefull.= " <a href='item.php?itemId={$values['itemId']}'>"
-        ." <img src='themes/{$_SESSION['theme']}/edit.gif' alt='Edit ' title='Edit' /> "
+        ." <img src='themes/{$_SESSION['theme']}/edit.gif' alt='Edit ' title='Edit'> "
         ."</a> ";
 
 if(isset($nextId))
@@ -424,10 +424,10 @@ if ($item['dateCompleted']) {
     <td>
         <form method='post' action='processItems.php'>
             <div>
-                <input type='submit' name='complete' value='Today' id='completereport' />
-                <input type='hidden' name='action' value='complete' />
-                <input type='hidden' name='referrer' value='<?php echo $pageURL; ?>' />
-                <input type='hidden' name='itemId' value='<?php echo $values['itemId']; ?>' />
+                <input type='submit' name='complete' value='Today' id='completereport'>
+                <input type='hidden' name='action' value='complete'>
+                <input type='hidden' name='referrer' value='<?php echo $pageURL; ?>'>
+                <input type='hidden' name='itemId' value='<?php echo $values['itemId']; ?>'>
             </div>
         </form>
     </td>
@@ -493,19 +493,19 @@ if (!empty($childtype)) foreach (array('n','y') as $comp) foreach ($childtype as
         || ($item['type']==='C' && $comp!=="n") ) {
 	   ?>
 <p>
-<input type="reset" class="button" />
-<input type="submit" class="button" value="Update marked <?php echo getTypes($thistype,$item['type']); ?>s" name="submit" />
-<input type='hidden' name='referrer' value='<?php echo "{$pagename}.php?itemId={$values['itemId']}"; ?>' />
+<input type="reset" class="button">
+<input type="submit" class="button" value="Update marked <?php echo getTypes($thistype,$item['type']); ?>s" name="submit">
+<input type='hidden' name='referrer' value='<?php echo "{$pagename}.php?itemId={$values['itemId']}"; ?>'>
         <?php if ($item['type']==='C') { ?>
 <button type='submit' name='clearchecklist' id='clearchecklist' value='y'>Clear Checklist</button>
         <?php } else { ?>
-<input type="hidden" name="multi" value="y" />
+<input type="hidden" name="multi" value="y">
         <?php } ?>
-<input type="hidden" name="parentId" value="<?php echo $item['itemId']; ?>" />
-<input type='hidden' name='ptype' value='<?php echo $item['type']; ?>' />
-<input type='hidden' name='type' value='<?php echo $thistype; ?>' />
-<input type="hidden" name="action" value="<?php if ($item['type']==='C') echo 'check'; ?>complete" />
-<input type="hidden" name="wasNAonEntry" value='<?php echo implode(' ',$wasNAonEntry); ?>' />
+<input type="hidden" name="parentId" value="<?php echo $item['itemId']; ?>">
+<input type='hidden' name='ptype' value='<?php echo $item['type']; ?>'>
+<input type='hidden' name='type' value='<?php echo $thistype; ?>'>
+<input type="hidden" name="action" value="<?php if ($item['type']==='C') echo 'check'; ?>complete">
+<input type="hidden" name="wasNAonEntry" value='<?php echo implode(' ',$wasNAonEntry); ?>'>
 </p>
         <?php
         if ($item['type']!=='C') { ?>

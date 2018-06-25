@@ -43,11 +43,11 @@ $headertext=<<<HTML1
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset={$_SESSION['config']['charset']}" />
+<meta http-equiv="Content-Type" content="text/html;charset={$_SESSION['config']['charset']}">
 <title>{$_SESSION['config']['title']} $title</title>
-<link rel="stylesheet" href="themes/{$_SESSION['theme']}/style.css" type="text/css"/>
-<link rel="stylesheet" href="themes/{$_SESSION['theme']}/style_screen.css" type="text/css" media="screen" />
-<link rel="shortcut icon" href="./favicon.ico" />
+<link rel="stylesheet" href="themes/{$_SESSION['theme']}/style.css" type="text/css">
+<link rel="stylesheet" href="themes/{$_SESSION['theme']}/style_screen.css" type="text/css" media="screen">
+<link rel="shortcut icon" href="./favicon.ico">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="calendar.js"></script>
 <script type="text/javascript" src="lang/calendar-en.js"></script>
@@ -65,7 +65,7 @@ theme main stylesheet
 <link rel="stylesheet" href="themes/{$_SESSION['theme']}/style.css" type="text/css"/>
 
 theme screen stylesheet
-<link rel="stylesheet" href="themes/{$_SESSION['theme']}/style_screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/{$_SESSION['theme']}/style_screen.css" type="text/css" media="screen">
 
 main calendar program
 <script type="text/javascript" src="calendar.js"></script>

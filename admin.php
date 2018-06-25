@@ -109,13 +109,13 @@ if ($showInstallations || $showCommands) { ?>
         <p>Pick one to operate on:</p-->
         <div class='formrow'>
             <label class='left first' for='prefix'>prefix</label>
-            <input disabled='disabled' id='prefix' type='text' name='prefix' value='<?php echo $prefix; ?>' />
+            <input disabled='disabled' id='prefix' type='text' name='prefix' value='<?php echo $prefix; ?>'>
         </div>
     <?php } if ($showCommands) { ?>
         <div class='formrow'>
         <label class='left first'>Action to take:</label>
             <?php foreach ($availableActions as $doit) {
-                echo "<input type='submit' name='$doit' value='$doit' />\n";
+                echo "<input type='submit' name='$doit' value='$doit'>\n";
             } ?>
             <a href='backup.php?prefix=<?php echo $prefix; ?>'>Create a backup of the database to save locally</a>
         </div>

@@ -16,15 +16,15 @@ foreach (array(
             echo $line[0];
         ?>' value='<?php
             echo getTypes($line[0]);
-        ?>' />
+        ?>'>
         <label><?php echo $line[2]; ?></label>
     </div>
 <?php } ?>
 <p>Leave an entry empty to restore the default value</p>
 <div class='formbuttons'>
-    <input type='submit' value='Save and proceed to stage 2' name='types2' />
-    <input type='submit' value='Save and return to summary' name='index' />
-    <input type='reset'  value='Reset' name='reset'  />
+    <input type='submit' value='Save and proceed to stage 2' name='types2'>
+    <input type='submit' value='Save and return to summary' name='index'>
+    <input type='reset'  value='Reset' name='reset' >
 </div>
 </form>
 <?php require_once 'footer.inc.php'; ?>

@@ -273,7 +273,7 @@ if ($show['header']) {
         // don't want this appearing in TITLE, but do want it in H1
         $titlefull= "<a href='itemReport.php?itemId={$values['itemId']}'>"
             ."<img src='themes/{$_SESSION['theme']}/report.gif' class='noprint' "
-            ."alt='Report' title='View Report' /></a>"
+            ."alt='Report' title='View Report'></a>"
             .$title;
     include_once 'header.inc.php';
 }
@@ -304,7 +304,7 @@ if ($sep!=='<p>') echo "</p>\n";
         <?php if($show['title']) { ?>
             <div class='formrow'>
                     <label for='title' class='left first'>Title:</label>
-                    <input type="text" name="title" id="title" value="<?php echo makeclean($values['title']); ?>" />
+                    <input type="text" name="title" id="title" value="<?php echo makeclean($values['title']); ?>">
             </div>
         <?php } else $hiddenvars['title']=$values['title'];
 
@@ -332,7 +332,7 @@ if ($sep!=='<p>') echo "</p>\n";
                     ,"<td><a href='itemReport.php?itemId={$parent['parentId']}' title='view parent'>"
                     ,makeclean($parent['ptitle']),"</a></td>"
                     ,"<td>",getTypes($ptype)
-                    ,"<input type='hidden' name='parentId[]' value='{$parent['parentId']}' /></td>"
+                    ,"<input type='hidden' name='parentId[]' value='{$parent['parentId']}'></td>"
                     ,"</tr>\n";
                 }
     ?></tbody>
@@ -376,7 +376,7 @@ if ($sep!=='<p>') echo "</p>\n";
                 ?>' title='Temporarily puts this into the tickler file, hiding it from the active view'>Suppress until:</label>
                 <input type='text' size='10' name='tickledate' id='tickledate' class='hasdate' value=<?php
                     echo "'{$values['tickledate']}'";
-                ?> /><button id='tickledate_trigger' class='calendarbutton' type='button'>&hellip;</button>
+                ?>><button id='tickledate_trigger' class='calendarbutton' type='button'>&hellip;</button>
             <?php
             } else
                 $hiddenvars['tickledate']=$values['tickledate'];
@@ -387,7 +387,7 @@ if ($sep!=='<p>') echo "</p>\n";
                      ?>' >Deadline:</label>
                 <input type='text' size='10' name='deadline' id='deadline' class='hasdate' value=<?php
                     echo "'{$values['deadline']}'";
-                    ?> /><button id='deadline_trigger' class='calendarbutton' type='button'>&hellip;</button>
+                    ?>><button id='deadline_trigger' class='calendarbutton' type='button'>&hellip;</button>
             <?php } else $hiddenvars['deadline']=$values['deadline'];
             
             if ($show['dateCompleted']) { ?>
@@ -423,14 +423,14 @@ if ($sep!=='<p>') echo "</p>\n";
         if ($show['NA']) { ?>
             <div class='formrow'>
                 <label for='nextaction' class='left first'>Next Action:</label>
-                <input type="checkbox" name="nextaction" id="nextaction" value="y" <?php if ($nextaction) echo " checked='checked'"; ?> />
+                <input type="checkbox" name="nextaction" id="nextaction" value="y" <?php if ($nextaction) echo " checked='checked'"; ?>>
             </div><?php
         }  else $hiddenvars['nextaction']=($nextaction)?'y':'';
         
         if ($show['isSomeday']) { ?>
             <div class='formrow'>
                 <label for='isSomeday' class='left first'>Someday:</label>
-                <input type='checkbox' name='isSomeday' id='isSomeday' value='y' title='Places item in Someday file'<?php if ($values['isSomeday']==='y') echo " checked='checked'";?> />
+                <input type='checkbox' name='isSomeday' id='isSomeday' value='y' title='Places item in Someday file'<?php if ($values['isSomeday']==='y') echo " checked='checked'";?>>
             </div><?php
         } else $hiddenvars['isSomeday']=$values['isSomeday'];
         
@@ -439,7 +439,7 @@ if ($sep!=='<p>') echo "</p>\n";
                 <label class='left first'>Repeat:</label>
                 <?php
                 //<input type='text' name='recurdesc' id='recurdesc' value='
-                //title='This description is just for your reference, and is not used by the software' /> (description of pattern)
+                //title='This description is just for your reference, and is not used by the software'> (description of pattern)
                     echo empty($values['recurdesc'])
                             ? '(none)'
                             : $values['recurdesc']
@@ -467,13 +467,13 @@ if ($sep!=='<p>') echo "</p>\n";
                 <input type='text' id='tags' name='tags' size='60' value=<?php
                     echo "'{$values['tagname']}'";
                     if (empty($taglist)) { 
-                        ?> /><br />
+                        ?>><br>
                         You have no tags yet. You can create some, separated with commas, in the box above.
                         <?php
                     } else { 
-                    ?> /> (use commas to separate)
+                    ?>> (use commas to separate)
                     <a href='#' onclick='return GTD.tagShow(this);'>Show all</a>
-                    <br />
+                    <br>
                     <span id='taglist'>
                         <?php
                         $sep='';
@@ -510,7 +510,7 @@ if ($show['submitbuttons']) { ?>
         $hiddenvars['referrer']='item.php?itemId='.$_REQUEST['nextId'];
         $hiddenvars['addAsParentTo']=$_REQUEST['nextId'];
         ?><div class='formbuttons'>
-            <input type='submit' value='Create item and assign as parent' name='submit' />
+            <input type='submit' value='Create item and assign as parent' name='submit'>
         <?php
     } else if ($_SESSION['config']['radioButtonsForNextPage']) { ?>
         <div class='formrow'>
@@ -522,36 +522,36 @@ if ($show['submitbuttons']) { ?>
         if ($show['ptitle'])
             echo "<input type='radio' name='afterCreate' id='parentNext' value='parent' class='first'"
         	 	,($tst=='parent')?" checked='checked' ":""
-        		," /><label for='parentNext' class='right'>View parent</label>\n";
+        		,"><label for='parentNext' class='right'>View parent</label>\n";
 
         echo "<input type='radio' name='afterCreate' id='itemNext' value='item' class='notfirst'"
         	 	,($tst=='item')?" checked='checked' ":""
-        		," /><label for='itemNext' class='right'>View item</label>\n"
+        		,"><label for='itemNext' class='right'>View item</label>\n"
         	,"<input type='radio' name='afterCreate' id='listNext' value='list' class='notfirst'"
         	 	,($tst=='list')?" checked='checked' ":""
-        		," /><label for='listNext' class='right'>List items</label>\n"
+        		,"><label for='listNext' class='right'>List items</label>\n"
         	,"<input type='radio' name='afterCreate' id='anotherNext' value='another' class='notfirst'"
         	 	,($tst=='another')?" checked='checked' ":""
-        		," /><label for='anotherNext' class='right'>Create another $typename</label>\n";
+        		,"><label for='anotherNext' class='right'>Create another $typename</label>\n";
         if ($values['type']==='p')
             echo "<input type='radio' name='afterCreate' id='childNext' value='child' class='notfirst'"
         	 	,($tst=='child')?" checked='checked' ":""
-        		," /><label for='childNext' class='right'>Create a child Next Action</label>\n";
+        		,"><label for='childNext' class='right'>Create a child Next Action</label>\n";
         else if ($values['type']==='C' || $values['type']==='L')
             echo "<input type='radio' name='afterCreate' id='childNext' value='child' class='notfirst'"
         	 	,($tst=='child')?" checked='checked' ":""
-        		," /><label for='childNext' class='right'>Create a child item</label>\n";
+        		,"><label for='childNext' class='right'>Create a child item</label>\n";
 
         if (!empty($hiddenvars['referrer']) || !empty($_SESSION[$key])) {
             echo "<input type='radio' name='afterCreate' id='referrerNext' value='referrer' class='notfirst'"
         	 	,($tst=='referrer')?" checked='checked' ":''
-        		," /><label for='referrerNext' class='right'>Return to previous list</label>\n";
+        		,"><label for='referrerNext' class='right'>Return to previous list</label>\n";
         } ?>
         </div>
         <div class='formbuttons'>
         <?php echo "<input type='submit' value='"
             ,($values['itemId'])?"Update $typename":'Create'
-            ,"' name='submit' />\n";
+            ,"' name='submit'>\n";
     } else { ?>
         <div class='formbuttons formrow'>
         <label class='left first'><?php
@@ -577,9 +577,9 @@ if ($show['submitbuttons']) { ?>
             $btn="<input type='submit' value='$buttonlabel' name='{$buttonname}Next'";
             if ($tst===$buttonname) {
                 if ($skip) $row1="<td colspan='$skip'></td>";
-                $row1.="<td rowspan='2'>$btn /></td>\n";
+                $row1.="<td rowspan='2'>$btn></td>\n";
             } else {
-                $row2.="<td>$btn /></td>\n";
+                $row2.="<td>$btn></td>\n";
                 $skip++;
             }
         }
@@ -591,13 +591,13 @@ if ($show['submitbuttons']) { ?>
             </tbody>
         </table>
     <?php } ?>
-    <input type='reset' value='Reset' />
+    <input type='reset' value='Reset'>
 <?php
     if ($values['itemId']) {
-        echo "<input type='hidden' name='oldtype' value='$oldtype' />\n";
+        echo "<input type='hidden' name='oldtype' value='$oldtype'>\n";
         if ($_SESSION['useLiveEnhancements']) { ?>
-            <input type='button' class='warning' name='bDelete' value='Delete' onclick='GTD.confirmDelete(this);' />
-            <input type='hidden' name='doDelete' id='doDelete' value='n' />
+            <input type='button' class='warning' name='bDelete' value='Delete' onclick='GTD.confirmDelete(this);'>
+            <input type='hidden' name='doDelete' id='doDelete' value='n'>
         <?php } else { ?>
             <input type='checkbox' name='doDelete' id='doDelete' value='y' title='Deletes item. Child items are orphaned, NOT deleted.'/>
             <label for='doDelete'>Delete&nbsp;<?php echo $typename; ?></label>
@@ -608,8 +608,8 @@ if ($show['submitbuttons']) { ?>
 } // end of if ($show['submitbuttons'])
 ?>
 <div class='hidden'>
-   <input type='hidden' name='required' value="title:notnull:Title must not be blank.,tickledate:date:Suppress date must be a valid date.,deadline:date:Deadline must be a valid date.,dateCompleted:date:Completion date must be a valid date.,UNTIL:date:Dont-repeat-after date must be a valid date." />
-   <input type='hidden' name='dateformat' value='ccyy-mm-dd' />
+   <input type='hidden' name='required' value="title:notnull:Title must not be blank.,tickledate:date:Suppress date must be a valid date.,deadline:date:Deadline must be a valid date.,dateCompleted:date:Completion date must be a valid date.,UNTIL:date:Dont-repeat-after date must be a valid date.">
+   <input type='hidden' name='dateformat' value='ccyy-mm-dd'>
     <?php
         if (!$values['itemId']) {
             // we are creating a new item, so remember its defaults, to make it easy to create another just like it
@@ -627,7 +627,7 @@ if ($show['submitbuttons']) { ?>
 		  <label class='left first' for='NORECUR'>No repeat</label>
 			<input type='radio' name='FREQtype' value='NORECUR' id='NORECUR' <?php
 					if ($recur['FREQtype']==='NORECUR') echo " checked='checked' ";
-			?> />
+			?>>
     </div>
 		
     <div class='formrow'>
@@ -636,20 +636,20 @@ if ($show['submitbuttons']) { ?>
             <input type='radio' id='freqtext' name='FREQtype' value='TEXT' <?php
                 if ($recur['FREQ']==='TEXT') echo "checked='checked'";
                 if  ($_SESSION['config']['suppressCustomRecurrences']) echo " disabled='disabled' ";
-            ?> />in .ics format
+            ?>>in .ics format
             <label>RRULE: <input type='text' name='icstext' size='70' <?php
                 if (!empty($values['recur']))
                     echo " value='{$values['recur']}' ";
                 if  ($_SESSION['config']['suppressCustomRecurrences'])
                     echo " disabled='disabled' ";
-            ?> /></label>
+            ?>></label>
         </span>
     </div>
 
     <div class='formrow'>
         <label class='left first' for='INTERVAL'>Repeat every:</label> <input type='text' value='<?php
             echo $recur['INTERVAL'];
-        ?>' name='INTERVAL' size='3' id='INTERVAL'  />
+        ?>' name='INTERVAL' size='3' id='INTERVAL' >
     </div>
 
     <div class='formrow'>
@@ -660,7 +660,7 @@ if ($show['submitbuttons']) { ?>
                 <input type='radio' name='FREQtype' <?php
                     echo "value='$freq' id='$freq' "
                         ,($recur['FREQtype']===$freq) ?" checked='checked' " : '';
-                ?> /> <label class='right' for='<?php echo $freq; ?>'><?php echo $val; ?>(s)</label>
+                ?>> <label class='right' for='<?php echo $freq; ?>'><?php echo $val; ?>(s)</label>
         <?php } ?>
         after each completion date
         </span>
@@ -676,7 +676,7 @@ if ($show['submitbuttons']) { ?>
         <label class='left first' for='WEEKLYBYDAY'>week(s):</label>
             <input type='radio' name='FREQtype' id='WEEKLYBYDAY' value='WEEKLYBYDAY' <?php
             if ($recur['FREQtype']==='WEEKLYBYDAY') echo "checked='checked'";
-            ?> /> on <?php
+            ?>> on <?php
             foreach ($days as $key=>$val)
                 echo "<label class='left'><input type='checkbox' name='WEEKLYday[]' value='$key'"
                     ,($recur['day'][$key])?" checked='checked' ":' '
@@ -690,7 +690,7 @@ if ($show['submitbuttons']) { ?>
             <label class='left first' for='MONTHLYBYDAY'>month(s):</label>
             <input type='radio' name='FREQtype' id='MONTHLYBYDAY' value='MONTHLYBYDAY' <?php
                 if ($recur['FREQtype']==='MONTHLYBYDAY') echo "checked='checked'";
-        ?> /><label for='MONTHLYdate'> on the </label>
+        ?>><label for='MONTHLYdate'> on the </label>
             <select name='MONTHLYdate' id='MONTHLYdate'><?php
                  foreach ($dates as $key=>$val)
                     echo "<option value='$key'"
@@ -705,7 +705,7 @@ if ($show['submitbuttons']) { ?>
             <label class='left first' for='MONTHLYBYWEEK'>month(s):</label>
             <input type='radio' name='FREQtype' id='MONTHLYBYWEEK' value='MONTHLYBYWEEK' <?php
                 if (!empty($recur['week'])) echo "checked='checked'";
-            ?> /> <label for='MONTHLYweek'>on the</label>&nbsp;<select id='MONTHLYweek' name='MONTHLYweek'><?php
+            ?>> <label for='MONTHLYweek'>on the</label>&nbsp;<select id='MONTHLYweek' name='MONTHLYweek'><?php
                 foreach ($weeks as $key=>$val)
                     echo "<option value='$key'"
                         ,($recur['week']==$key)?" selected='selected'":''
@@ -724,7 +724,7 @@ if ($show['submitbuttons']) { ?>
             <label class='left first' for='YEARLYBYDATE'>year(s):</label>
             <input type='radio' name='FREQtype' id='YEARLYBYDATE' value='YEARLYBYDATE' <?php
                 if ($recur['FREQtype']==='YEARLYBYDATE') echo "checked='checked'";
-            ?> /> <label for='YEARLYdate'>on the </label>
+            ?>> <label for='YEARLYdate'>on the </label>
             <select id='YEARLYdate' name='YEARLYdate'><?php
                  foreach ($dates as $key=>$val)
                     echo "<option value='$key'"
@@ -744,7 +744,7 @@ if ($show['submitbuttons']) { ?>
         <span>
             <label class='left first' for='YEARLYBYWEEK'>year(s):</label>
             <input type='radio' name='FREQtype' id='YEARLYBYWEEK' value='YEARLYBYWEEK' <?php
-                if ($recur['FREQtype']==='YEARLYBYWEEK') echo "checked='checked'"; ?> />
+                if ($recur['FREQtype']==='YEARLYBYWEEK') echo "checked='checked'"; ?>>
             <label for='YEARLYweeknum'>on the </label><select id='YEARLYweeknum' name='YEARLYweeknum'><?php
                 foreach ($weeks as $key=>$val)
                     echo "<option value='$key'"
@@ -773,7 +773,7 @@ if ($show['submitbuttons']) { ?>
               echo $recur['UNTIL']['year'],'-'
                   ,$recur['UNTIL']['month'],'-'
                   ,$recur['UNTIL']['day'];
-        ?>' /><button id='UNTIL_trigger' type='button' class='calendarbutton'>&hellip;</button>
+        ?>'><button id='UNTIL_trigger' type='button' class='calendarbutton'>&hellip;</button>
     </div>
 
 </div>
@@ -795,16 +795,16 @@ if ($show['scriptparents']) {
     <form method='get' action='#' onsubmit='return GTD.parentselect.close();'>
         <p>
             <label for="searcherneedle">Search for</label>
-            <input type='text' name='searcherneedle' id='searcherneedle' onkeyup='return GTD.parentselect.refinesearch(this);' />
+            <input type='text' name='searcherneedle' id='searcherneedle' onkeyup='return GTD.parentselect.refinesearch(this);'>
             in the titles of
-        <br /><?php
+        <br><?php
             foreach ($allowedSearchTypes as $key=>$value)
                 echo "&nbsp;&nbsp;<label for='radio$key'>$value</label>\n"
                     ,"<input type='radio' name='qtype' class='notfirst' value='$key' id='radio$key' "
                     ," onclick='return GTD.parentselect.refinesearch(this);' "
                         ,($key===$values['ptype'])?' checked="checked" ':''
-                    ," />&nbsp;\n";
-            ?><input type='hidden' name='returntype' value='table' />
+                    ,">&nbsp;\n";
+            ?><input type='hidden' name='returntype' value='table'>
         </p>
         <div id='searchresults'>&nbsp;</div>
     </form>
@@ -813,6 +813,6 @@ if ($show['scriptparents']) {
 if ($show['footer']) include_once 'footer.inc.php';
 function hidePostVar($name,$val) {
     $val=makeclean($val);
-    return "<input type='hidden' id='$name' name='$name' value='$val' />\n";
+    return "<input type='hidden' id='$name' name='$name' value='$val'>\n";
 }
 ?>

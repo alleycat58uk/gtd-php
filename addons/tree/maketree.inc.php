@@ -38,8 +38,8 @@ function show1($item) {  // recursive function to list an item, and to kick off 
 
     $prefix="<li class='tree{$values['type']}$liclass category{$values['categoryId']} context{$values['contextId']}";
 
-    $mid1="'>\n<img src='{$addon['dir']}cog.png' class='noprint' alt='Menu' title='Menu of actions' />
-            <input type='hidden' name='id' value='{$values['itemId']}' />" ;
+    $mid1="'>\n<img src='{$addon['dir']}cog.png' class='noprint' alt='Menu' title='Menu of actions'>
+            <input type='hidden' name='id' value='{$values['itemId']}'>" ;
 
     $mid2="<span$spanclass>".makeclean($values['title'])."</span>";
 
@@ -65,7 +65,7 @@ function makeRadio($direction,$type,$checked) {
        "<label class='left' for='$direction$type'>{$typenames[$type]}s</label>\n"
       ."<input type='radio' name='show$direction' id='$direction$type' value='$type' "
       .( ($checked) ? " checked='checked' " : '' )
-      ." />\n";
+      .">\n";
 }
 
 include_once 'headerDB.inc.php';
@@ -228,7 +228,7 @@ $referrer = ( preg_match("/[^\/]+$/", $_SERVER['REQUEST_URI'] ,$matches ) ) ?
 include_once 'headerHtml.inc.php';
 ?>
 
-<link rel='stylesheet' href='<?php echo $addon['dir']; ?>tree.css' type='text/css' />
+<link rel='stylesheet' href='<?php echo $addon['dir']; ?>tree.css' type='text/css'>
 <script type='text/javascript' src='<?php echo $addon['dir']; ?>tree.js'></script>
 <script type="text/javascript">
 $(document).ready(function treephp_ready() {
@@ -263,7 +263,7 @@ include_once 'header.inc.php';
 </div>
 
 <div class='formbuttons'>
-<input type='submit' name='filter' value='Retrieve this tree' />
+<input type='submit' name='filter' value='Retrieve this tree'>
 <?php if (!$suppressListing) { ?>
 <a href='#' onclick='return GTD.tree.toggleOptions(false);'>Cancel and return to live options</a>
 <?php } ?>
@@ -281,11 +281,11 @@ include_once 'header.inc.php';
 
 <div class='formrow'>
 <label class='left first' for='showdone'>Completed items</label>
-<input type='checkbox' id='showdone' onclick='return GTD.tree.showDone(this);' />
+<input type='checkbox' id='showdone' onclick='return GTD.tree.showDone(this);'>
 
 <?php if ($gottypes['a']) { ?>
 <label class='left' for='shownext'>Only <b>next</b> actions</label>
-<input type='checkbox' id='shownext' onclick='return GTD.tree.showNext(this);' />
+<input type='checkbox' id='shownext' onclick='return GTD.tree.showNext(this);'>
 <?php } ?>
 
 <label class='left' for='categoryselect'>Category</label>
@@ -308,7 +308,7 @@ if ($gottypes['p']) { ?>
 foreach (array('L','C') as $type) if ($gottypes[$type])
     echo "<label class='left' for='show$type'>Expand {$typenames[$type]}s</label>\n"
         ,"<input type='checkbox' checked='checked' id='show$type' value='$type'"
-        ,"onclick='return GTD.tree.expand(this,\"$type\")' />\n";
+        ,"onclick='return GTD.tree.expand(this,\"$type\")'>\n";
 ?>
 </div>
 
@@ -322,7 +322,7 @@ foreach (array('L','C') as $type) if ($gottypes[$type])
 
 <div class='hidden'>
 <?php foreach (array('addonid','url') as $field)
-  echo "<input type='hidden' name='$field' value='{$_GET[$field]}' />\n";
+  echo "<input type='hidden' name='$field' value='{$_GET[$field]}'>\n";
 ?>
 </div>
 
@@ -382,9 +382,9 @@ if ($showingall)
 
 <form class='hidden' method='post' action='processItems.php' id='pruningform'>
 <div>
-<input type='hidden' name='action' value='delete' />
-<input type='hidden' name='multi' value='y' />
-<input type='hidden' name='referrer' value='' />
+<input type='hidden' name='action' value='delete'>
+<input type='hidden' name='multi' value='y'>
+<input type='hidden' name='referrer' value=''>
 </div>
 </form>
 

@@ -20,7 +20,7 @@ foreach ($maintable as $row) {
     echo '<tr'
         ,(!empty($row['row.class']))?" class='{$row['row.class']}' ":''
         ,">\n";
-    echo "<td class='hidden col-id'><input type='hidden' name='id' value='{$row['itemId']}' />{$row['itemId']}</td>";
+    echo "<td class='hidden col-id'><input type='hidden' name='id' value='{$row['itemId']}'>{$row['itemId']}</td>";
     foreach ($dispArray as $key=>$val) {
         echo '<td class="col-',$key
             ,(empty($row[$key.'.class']))?'':' '.$row[$key.'.class']
@@ -87,7 +87,7 @@ foreach ($maintable as $row) {
                         ,"type='",(empty($dispArray[$key.'.type']))?'checkbox':'radio',"'"
                         ,($row[$key])?" checked='checked' ":''
                         ,(empty($row['NAdisabled'])) ? '' : " disabled='disabled' "
-                        ,' />';
+                        ,'>';
                 break;
             case 'parent':
                 if (empty($row[$key.'Id']))
@@ -101,7 +101,7 @@ foreach ($maintable as $row) {
                         echo "$brk<a href='itemReport.php?itemId=$pid' title='View report'>"
                             ,makeclean($pnames[$pkey])
                             ,"</a> ";
-                        $brk="<br />\n";
+                        $brk="<br>\n";
                     }
                 }
                 break;
@@ -134,9 +134,9 @@ foreach ($maintable as $row) {
                 } else {
                     if ($row['itemId'][0]!=='0')
                         echo "<a href='itemReport.php?itemId={$row['itemId']}'>"
-                            ,"<img src='themes/{$_SESSION['theme']}/report.gif' class='noprint' alt='Report' title='View Report' /></a>";
+                            ,"<img src='themes/{$_SESSION['theme']}/report.gif' class='noprint' alt='Report' title='View Report'></a>";
                     echo "<a href='item.php?itemId={$row['itemId']}$localRef'>"
-                    ,"<img src='themes/{$_SESSION['theme']}/edit.gif' class='noprint' alt='Edit ' title='Edit' /></a>"
+                    ,"<img src='themes/{$_SESSION['theme']}/edit.gif' class='noprint' alt='Edit ' title='Edit'></a>"
                     ,"<a "
                     ,(empty($row['NA']))?'':"class='nextactionlink'"
                     ," title='"

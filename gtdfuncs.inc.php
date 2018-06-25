@@ -678,7 +678,7 @@ You can switch <tt>register_globals</tt> off globally in php.ini, if you are
 confident that this will not intefere with any of the other PHP applications on
 this server.  Or you can switch it off locally in the gtd-php installation
 directory by adding the following line to the <tt>.htaccess</tt> file in this
-directory:<br />
+directory:<br>
 <tt>php_flag register_globals off</tt>
 </p>
 RGWARN;
@@ -826,7 +826,7 @@ function nextScreen($url) {
     if ($_SESSION['debug']['wait']) {
         echo "<p>Next screen is <a href='$cleanurl'>$cleanurl</a> - would be auto-refresh in non-debug mode</p>";
     }elseif (headers_sent()) {
-        echo "<META HTTP-EQUIV='Refresh' CONTENT='0;url=$cleanurl' />\n"
+        echo "<META HTTP-EQUIV='Refresh' CONTENT='0;url=$cleanurl'>\n"
             ,"<script type='text/javascript'>window.location.replace('$cleanurl');</script>\n"
             ,"</head><body><a href='$cleanurl'>Click here to continue on to $cleanurl</a>\n";
     }elseif (empty($_SESSION['config']['basepath'])) {

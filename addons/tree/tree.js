@@ -230,7 +230,7 @@ GTD.tree = {
         allDescendants.each(function prune_makeform() {
           form.append("'<input type='hidden' name='isMarked[]' value='" +
                 $(this).children("input[name=id]").val() +
-                "' />");
+                "'>");
         });
         nexturl = "index.php";
         $("input[name=referrer]",form).val(nexturl);

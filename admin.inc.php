@@ -30,7 +30,7 @@ function deleteInstall($ver,$prefix) {
 // --------------------------------------------------------------------------------
 function makeDeleteButton($prefix,$ver) {
     global $versions;
-    $out="<input class='warning' type='submit' value='Delete=$prefix=$ver' name='Delete_$prefix' />";
+    $out="<input class='warning' type='submit' value='Delete=$prefix=$ver' name='Delete_$prefix'>";
     return $out;
 }
 // --------------------------------------------------------------------------------
@@ -56,7 +56,7 @@ function showDeleteWarning($noPrint=false) {
             if (_ALLOWUPGRADEINPLACE) $outStr.=' and ';
         }
         if (_ALLOWUPGRADEINPLACE) $outStr.=' over-writing ';
-        $outStr.=" cannot be undone.<br /> \n"
+        $outStr.=" cannot be undone.<br> \n"
             ." Make sure that any information you are about to remove is backed up "
             ." somewhere, and that you are sure it belongs to GTD-PHP and to you.</p>\n";
     } else $outStr='';
@@ -71,9 +71,9 @@ function getConfirmation($action,$prefix) {
         ,"<p class='warning'>\n Are you sure you wish to $action the installation "
         ," with prefix '$prefix'? This action is irreversible.</p>\n";
     foreach ($_POST as $var=>$val)
-        echo "<input type='hidden' name='$var' value='$val' />\n";
-    echo "<input type='submit' name='$action' value='Continue' />\n"
-        ,"<input type='submit' name='cancel' value='Cancel' />\n"
+        echo "<input type='hidden' name='$var' value='$val'>\n";
+    echo "<input type='submit' name='$action' value='Continue'>\n"
+        ,"<input type='submit' name='cancel' value='Cancel'>\n"
         ,"</div></form>\n";
 }
 // --------------------------------------------------------------------------------

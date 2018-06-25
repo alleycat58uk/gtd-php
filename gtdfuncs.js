@@ -888,7 +888,7 @@ GTD.ParentSelector.prototype.gotparent=function gtd_ps_gp(id,title,type,typename
   if (document.getElementById('parentrow'+id)) {return;}
 
   try {
-    input = document.createElement("<input type='hidden' name='parentId[]' value='" + id + "' />");
+    input = document.createElement("<input type='hidden' name='parentId[]' value='" + id + "'>");
   }
   catch (err) {
     input = document.createElement('input');
@@ -1209,7 +1209,7 @@ GTD.validate=function gtd_validate(form) {
 
     // Parse required list and check each required field
     formValid=true;
-    formErrorMessage="Please correct the following:<br />";
+    formErrorMessage="Please correct the following:<br>";
     requiredList = form.required.value.split(",");
 
     // remove any previous error flags
@@ -1249,7 +1249,7 @@ GTD.validate=function gtd_validate(form) {
         if (!passed) {
             if (formValid) {thisfield.focus();}
             formValid=false;
-            formErrorMessage += itemErrorMessage + "<br />";
+            formErrorMessage += itemErrorMessage + "<br>";
             thisfield.className='formerror';
         }
     }

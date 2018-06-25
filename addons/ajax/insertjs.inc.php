@@ -46,7 +46,7 @@ switch ($page) {
         if($loadingajax)
             $headertext.="\n<link rel='commands' href='".
                 htmlentities($addon['urlprefix']).
-                "ubiquity.inc.php' />\n";
+                "ubiquity.inc.php'>\n";
         break;
         //-------------------------------------------------------------
     default:
@@ -58,7 +58,7 @@ switch ($page) {
 if ($loadingajax) {
     $headertext.= <<<HTML
 
-<link rel='stylesheet' href='{$addon['dir']}ajax.css' type='text/css' />
+<link rel='stylesheet' href='{$addon['dir']}ajax.css' type='text/css'>
 <script type='text/javascript' src='{$addon['dir']}gtdajax.js'></script>
 <script type='text/javascript'>
 /* <![CDATA[ */

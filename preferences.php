@@ -23,13 +23,13 @@ function makeOptionsTab($array,$values,$tabname,$varprefix='',$textsize=10) {
                 $checkboxes.="$name,";
                 break;
             case 'heading':
-                echo '<hr />';
+                echo '<hr>';
                 $for='';
                 break;
             case 'text': // deliberately flows through
                 echo "<input type='text' name='$name' size='$textsize' id='opt$name' value='"
                     ,makeclean($val)
-                    ,"' />\n";
+                    ,"'>\n";
                 break;
             default: // it's a select
                 echo "<select name='$name' id='opt$name'>";
@@ -44,8 +44,8 @@ function makeOptionsTab($array,$values,$tabname,$varprefix='',$textsize=10) {
     }
     ?>
         <div class='formbuttons'>
-            <input type='submit' value='Apply all sections' name='submit' />
-            <input type='reset'  value='Reset all' name='reset'  />
+            <input type='submit' value='Apply all sections' name='submit'>
+            <input type='reset'  value='Reset all' name='reset' >
         </div>
     </div>
     <?php
@@ -188,7 +188,7 @@ foreach ($menu as $menuitem) { // Store keyprefs against link in db.
     // keys are link, title, label
     $array[]=array($keyentry,'text',$menuitem['title']);
     $link=$menuitem['link'];
-    $hidden.="<input type='hidden' name='lkeys$keyentry' value='".makeclean($link)."' />\n";
+    $hidden.="<input type='hidden' name='lkeys$keyentry' value='".makeclean($link)."'>\n";
     $keylist[$keyentry]=(isset($_SESSION['keys'][$link])) ? $_SESSION['keys'][$link] : null;
     $keyentry++;
 }
@@ -209,9 +209,9 @@ makeOptionsTab($array,$_SESSION['debug'],'Debugging','debug',1);
 */
 ?>
 <div class='formbuttons'>
-    <input type='submit' name='restoredefaults' value='Restore default preferences' />
+    <input type='submit' name='restoredefaults' value='Restore default preferences'>
     <?php
-    $hidden.="<input type='hidden' name='checkboxes' value='$checkboxes' />\n";
+    $hidden.="<input type='hidden' name='checkboxes' value='$checkboxes'>\n";
     echo $hidden;
     ?>
 </div>

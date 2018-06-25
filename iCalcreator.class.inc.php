@@ -865,14 +865,14 @@ class vcalendar {
         $dtendExist = TRUE;
         $endDateFormat = ( isset( $end['hour'] )) ? 'Y-m-d H:i:s' : 'Y-m-d';
       }
-   // if( !empty($end))  echo 'selectComp 1 start='.implode('-',$start).' end='.implode('-',$end)."<br />\n"; // test ###
+   // if( !empty($end))  echo 'selectComp 1 start='.implode('-',$start).' end='.implode('-',$end)."<br>\n"; // test ###
       if( empty($end) && ( $component->objName == 'vtodo' )) {
         $end = $component->getProperty( 'due' );
         if( !empty( $end )) {
           $dueExist = TRUE;
           $endDateFormat = ( isset( $end['hour'] )) ? 'Y-m-d H:i:s' : 'Y-m-d';
         }
-   // if( !empty($end))  echo 'selectComp 2 start='.implode('-',$start).' end='.implode('-',$end)."<br />\n"; // test ###
+   // if( !empty($end))  echo 'selectComp 2 start='.implode('-',$start).' end='.implode('-',$end)."<br>\n"; // test ###
       }
       if( !empty( $end ) && !isset( $end['hour'] )) {
           /* a DTEND without time part regards an event that ends the day before,
@@ -884,17 +884,17 @@ class vcalendar {
         $end['day']   = date( 'd', $endWdate );
         $end['hour']  = 23;
         $end['min']   = $end['sec'] = 59;
-   // if( !empty($end))  echo 'selectComp 3 start='.implode('-',$start).' end='.implode('-',$end)."<br />\n"; // test ###
+   // if( !empty($end))  echo 'selectComp 3 start='.implode('-',$start).' end='.implode('-',$end)."<br>\n"; // test ###
       }
       if( empty( $end )) {
         $end = $component->getProperty( 'duration', FALSE, FALSE, TRUE );// in dtend (array) format
         if( !empty( $end ))
           $durationExist = TRUE;
-   // if( !empty($end))  echo 'selectComp 4 start='.implode('-',$start).' end='.implode('-',$end)."<br />\n"; // test ###
+   // if( !empty($end))  echo 'selectComp 4 start='.implode('-',$start).' end='.implode('-',$end)."<br>\n"; // test ###
       }
       if( empty( $end )) { // assume one day duration if missing end date
         $end = array( 'year' => $start['year'], 'month' => $start['month'], 'day' => $start['day'], 'hour' => 23, 'min' => 59, 'sec' => 59 );
-   // if( isset($end))  echo 'selectComp 5 start='.implode('-',$start).' end='.implode('-',$end)."<br />\n"; // test ###
+   // if( isset($end))  echo 'selectComp 5 start='.implode('-',$start).' end='.implode('-',$end)."<br>\n"; // test ###
       }
       $endWdate = $component->_date2timestamp( $end );
       if( $endWdate < $startWdate ) { // MUST be after start date!!
@@ -4576,7 +4576,7 @@ class calendarComponent {
         !isset( $datetime['sec'] ))
       return ;
     $output = null;
-    // if( !isset( $datetime['day'] )) { $o=''; foreach($datetime as $k=>$v) {if(is_array($v)) $v=implode('-',$v);$o.=" $k=>$v";} echo " day SAKNAS : $o <br />\n"; }
+    // if( !isset( $datetime['day'] )) { $o=''; foreach($datetime as $k=>$v) {if(is_array($v)) $v=implode('-',$v);$o.=" $k=>$v";} echo " day SAKNAS : $o <br>\n"; }
     foreach( $datetime as $dkey => $dvalue ) {
       if( 'tz' != $dkey )
         $datetime[$dkey] = (integer) $dvalue;
@@ -4860,7 +4860,7 @@ class calendarComponent {
     if( !$enddate ) {
       $enddate = $startdate;
       $enddate['year'] += 1;
-// echo "recur __in_ ".implode('-',$startdate)." period start ".implode('-',$wdate)." period end ".implode('-',$enddate)."<br />\n";print_r($recur);echo "<br />\n";//test###
+// echo "recur __in_ ".implode('-',$startdate)." period start ".implode('-',$wdate)." period end ".implode('-',$enddate)."<br>\n";print_r($recur);echo "<br>\n";//test###
     }
     $endDatets = $this->_date2timestamp( $enddate ); // fix break
     if( !isset( $recur['COUNT'] ) && !isset( $recur['UNTIL'] ))
@@ -4875,7 +4875,7 @@ class calendarComponent {
         $recur['UNTIL'] = $this->_timestamp2date( $endDatets, 6 );
     }
     if( $wdatets > $endDatets ) {
-     //echo "recur out of date ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$wdatets),6))."<br />\n";//test
+     //echo "recur out of date ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$wdatets),6))."<br>\n";//test
       return array(); // nothing to do.. .
     }
     if( !isset( $recur['FREQ'] )) // "MUST be specified.. ."
@@ -4923,7 +4923,7 @@ class calendarComponent {
     $year_old     = null;
     $daynames     = array( 'SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA' );
              /* MAIN LOOP */
-     // echo "recur start ".implode('-',$wdate)." end ".implode('-',$enddate)."<br />\n";//test
+     // echo "recur start ".implode('-',$wdate)." end ".implode('-',$enddate)."<br>\n";//test
     while( TRUE ) {
       if( isset( $endDatets ) && ( $wdatets > $endDatets ))
         break;
@@ -5011,13 +5011,13 @@ class calendarComponent {
         if(( $recur['INTERVAL'] != $intervalarr[$intervalix] ) &&
            ( 0 != $intervalarr[$intervalix] )) {
             /* step up date */
-    //echo "skip: ".implode('-',$wdate)." ix=$intervalix old=$currentKey interval=".$intervalarr[$intervalix]."<br />\n";//test
+    //echo "skip: ".implode('-',$wdate)." ix=$intervalix old=$currentKey interval=".$intervalarr[$intervalix]."<br>\n";//test
           $this->_stepdate( $wdate, $wdatets, $step);
           continue;
         }
         else // continue within the selected interval
           $intervalarr[$intervalix] = 0;
-   //echo "cont: ".implode('-',$wdate)." ix=$intervalix old=$currentKey interval=".$intervalarr[$intervalix]."<br />\n";//test
+   //echo "cont: ".implode('-',$wdate)." ix=$intervalix old=$currentKey interval=".$intervalarr[$intervalix]."<br>\n";//test
       }
       $updateOK = TRUE;
       if( $updateOK && isset( $recur['BYMONTH'] ))
@@ -5036,7 +5036,7 @@ class calendarComponent {
         $updateOK = $this->_recurBYcntcheck( $recur['BYMONTHDAY']
                                            , $wdate['day']
                                            , $daycnts[$wdate['month']][$wdate['day']]['monthcnt_down'] );
-    //echo "efter BYMONTHDAY: ".implode('-',$wdate).' status: '; echo ($updateOK) ? 'TRUE' : 'FALSE'; echo "<br />\n";//test###
+    //echo "efter BYMONTHDAY: ".implode('-',$wdate).' status: '; echo ($updateOK) ? 'TRUE' : 'FALSE'; echo "<br>\n";//test###
       if( $updateOK && isset( $recur['BYDAY'] )) {
         $updateOK = FALSE;
         $m = $wdate['month'];
@@ -5060,7 +5060,7 @@ class calendarComponent {
              ( !$daynoexists && !$daynosw && $daynamesw )) {
             $updateOK = TRUE;
           }
-        //echo "daynoexists:$daynoexists daynosw:$daynosw daynamesw:$daynamesw<br />\n"; // test ###
+        //echo "daynoexists:$daynoexists daynosw:$daynosw daynamesw:$daynamesw<br>\n"; // test ###
         }
         else {
           foreach( $recur['BYDAY'] as $bydayvalue ) {
@@ -5080,7 +5080,7 @@ class calendarComponent {
                                                   , $daycnts[$m][$d]['yeardayno_up']
                                                   , $daycnts[$m][$d]['yeardayno_down'] );
             }
-        //echo "daynoexists:$daynoexists daynosw:$daynosw daynamesw:$daynamesw<br />\n"; // test ###
+        //echo "daynoexists:$daynoexists daynosw:$daynosw daynamesw:$daynamesw<br>\n"; // test ###
             if((  $daynoexists &&  $daynosw && $daynamesw ) ||
                ( !$daynoexists && !$daynosw && $daynamesw )) {
               $updateOK = TRUE;
@@ -5089,7 +5089,7 @@ class calendarComponent {
           }
         }
       }
-      //echo "efter BYDAY: ".implode('-',$wdate).' status: '; echo ($updateOK) ? 'TRUE' : 'FALSE'; echo "<br />\n"; // test ###
+      //echo "efter BYDAY: ".implode('-',$wdate).' status: '; echo ($updateOK) ? 'TRUE' : 'FALSE'; echo "<br>\n"; // test ###
             /* check BYSETPOS */
       if( $updateOK ) {
         if( isset( $recur['BYSETPOS'] ) &&
@@ -5120,9 +5120,9 @@ class calendarComponent {
           $countcnt++;
           if( $startdatets <= $wdatets ) { // only output within period
             $result[$wdatets] = TRUE;
-          //echo "recur ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$wdatets),6))."<br />\n";//test
+          //echo "recur ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$wdatets),6))."<br>\n";//test
           }
-         //else echo "recur undate ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$wdatets),6))." okdatstart ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$startdatets),6))."<br />\n";//test
+         //else echo "recur undate ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$wdatets),6))." okdatstart ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$startdatets),6))."<br>\n";//test
           $updateOK = FALSE;
         }
       }
@@ -5174,7 +5174,7 @@ class calendarComponent {
             if( isset( $bysetposarr1[$ix] )) {
               if( $startdatets <= $bysetposarr1[$ix] ) { // only output within period
                 $result[$bysetposarr1[$ix]] = TRUE;
-       //echo "recur ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$bysetposarr1[$ix]),6))."<br />\n";//test
+       //echo "recur ".implode('-',$this->_date_time_string(date('Y-m-d H:i:s',$bysetposarr1[$ix]),6))."<br>\n";//test
               }
               $countcnt++;
             }

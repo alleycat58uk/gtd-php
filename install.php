@@ -137,7 +137,7 @@ $areDeleting=false;
 		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <title>gtd-php installer</title>
 <?php if (_DEBUG) { ?>
     <style type='text/css'>pre,.debug {}</style>
@@ -148,7 +148,7 @@ $areDeleting=false;
     <script type="text/javascript" src="gtdfuncs.js"></script>
 <?php } ?>
 <link rel="stylesheet" href="themes/default/style.css" type="text/css"/>
-<link rel="stylesheet" href="themes/default/style_screen.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="themes/default/style_screen.css" type="text/css" media="screen">
 </head>
 <body>
 <?php include 'showMessage.inc.php'; ?>
@@ -157,7 +157,7 @@ $areDeleting=false;
 
 if (_DEBUG) echo "<pre class='debug'>"
 	,(_DRY_RUN)?'Executing Dry run - no tables will be amended in this run':'This is a <b>live</b> run'
-	,'<br />POST variables: ',print_r($_POST,true),"</pre>\n";
+	,'<br>POST variables: ',print_r($_POST,true),"</pre>\n";
 
 if (isset($_POST['cancel']))
     ; // we've cancelled an over-write or a delete, so go back to the installation menu
@@ -263,7 +263,7 @@ function checkInstall() {
 	$checkState='tables';
 	$tablelist = getDBTables($config['db']);
 	$nt=count($tablelist);
-	if (_DEBUG) echo "<pre class='debug'>Number of tables: $nt<br />",print_r($tablelist,true),"</pre>";
+	if (_DEBUG) echo "<pre class='debug'>Number of tables: $nt<br>",print_r($tablelist,true),"</pre>";
 
 	// validate the prefix
 	$checkState='prefix';
@@ -365,13 +365,13 @@ function checkInstall() {
                 ." installation of 0.7 to the latest version, using this prefix.";
             if (_ALLOWUNINSTALL) echo showDeleteWarning(true)
                 ,"<form action='install.php' method='post'>\n"
-                ,"<p class='warning'>$msg<br />\n"
+                ,"<p class='warning'>$msg<br>\n"
                 ,"You can delete these temporary files here:"
                 ,makeDeleteButton('temporary','tables')
                 ,"<input type='hidden' name='tablesToDelete' value='"
                 ,implode(' ',$tmptables)
                 ,"'></p></form>\n";
-            else echo "<p class='warning'>$msg<br />Change the installation prefix in config.inc.php, or consult your administrator, to fix the problem.</p>\n";
+            else echo "<p class='warning'>$msg<br>Change the installation prefix in config.inc.php, or consult your administrator, to fix the problem.</p>\n";
         }
 
     }
@@ -426,9 +426,9 @@ function checkInstall() {
         }
 		// and finally, close the table
 		echo "</tbody></table>\n<div>\n"
-            ,"<input type='hidden' name='prefix' value='{$config['prefix']}' />\n"
-            ,"<input type='hidden' name='db' value='{$config['db']}' />\n"
-            ,"<input type='submit' name='install' value='Install' />\n";
+            ,"<input type='hidden' name='prefix' value='{$config['prefix']}'>\n"
+            ,"<input type='hidden' name='db' value='{$config['db']}'>\n"
+            ,"<input type='submit' name='install' value='Install'>\n";
         if ($destInUse)
             echo "<span class='warning'>Warning: this will over-write your current installation! "
                 ,"<br/>Make sure you have a "
@@ -456,7 +456,7 @@ function doInstall($installType,$fromPrefix) {
     $toPrefix=$config['prefix'];
 	$endMsg=$temp='';
 	register_shutdown_function('cleanup');
-	if (_DEBUG) echo "<pre class='debug'>Install type is: $installType<br />Source database has prefix $fromPrefix</pre>";
+	if (_DEBUG) echo "<pre class='debug'>Install type is: $installType<br>Source database has prefix $fromPrefix</pre>";
 	if ($installType=='0' || $installType=='1')
         echo "<p>Installing ... please wait</p>\n";
     else
@@ -574,7 +574,7 @@ installation for use and familiarize yourself with the system.</p>\n
 	 default: // no idea what the current installation is
 	 	$endMsg='<p class="error">The install script has not been able to work out'
 	 		 .' whether this is an installation, or an upgrade;'
-	  		 .' and if the latter, what version we are upgrading from.<br />'
+	  		 .' and if the latter, what version we are upgrading from.<br>'
 			 .'Note that this installation script cannot upgrade'
 			 .' an installation from gtd-php versions earlier than 0.7</p>';
 		break;
@@ -641,7 +641,7 @@ function failDuringCheck() {
             echo "<p class='error'>Unable to start the installation pre-flight checks</p>";
             break;
         case 'config': // no valid config.inc.php
-            echo "<p class='error'>No valid config.inc.php file found.<br />"
+            echo "<p class='error'>No valid config.inc.php file found.<br>"
     			     ,"Copy the config.sample.php file to config.inc.php, and set the MySQL parameters. "
                ,"Here's the <a href='http://www.gtd-php.com/Users/Config09'>online help</a>.</p>\n";
             break;
@@ -723,7 +723,7 @@ function tabulateOption($prefix,$key,$msg) {
 	if ($prefix==='!')
         $result.="X";
 	else {
-	   $result.="<input type='radio' name='installkey' value='$key' $isChecked />";
+	   $result.="<input type='radio' name='installkey' value='$key' $isChecked>";
 	   $isChecked='';
     }
     $result.="</td><td>$msg</td>"
@@ -738,7 +738,7 @@ function tabulateOption($prefix,$key,$msg) {
 function showNoUpgradeMsg($prefix,$ver) {
     echo "<div id='main'>\n"
         ,"<p class='warning'>Found an earlier GTD-PHP installation "
-        ," (version $ver) with prefix '$prefix'<br />\n"
+        ," (version $ver) with prefix '$prefix'<br>\n"
         ," The installation options that are currently set do "
         ," not allow you to upgrade the current installation in place: change the "
         ," prefix in config.inc.php to allow you to create a new installation.</p>\n";
@@ -768,10 +768,10 @@ function send_query($q,$dieOnFail=true) {
         }
     } else {
         if($dieOnFail) {
-            echo "<p class='error'>Fatal error: Failed to do database query: '$q'<br />",mysql_error(),"</p>\n";
+            echo "<p class='error'>Fatal error: Failed to do database query: '$q'<br>",mysql_error(),"</p>\n";
             die("<p class='error'>Installation terminated</p>");
         }elseif (_DEBUG)
-            echo "<p class='warning debug'>Warning: Failed to do database query: '$q'<br />",mysql_error(),"</p>\n";
+            echo "<p class='warning debug'>Warning: Failed to do database query: '$q'<br>",mysql_error(),"</p>\n";
     }
     return($result);
 }

@@ -774,7 +774,7 @@ function addAjaxToggleContext(node,context) {
  * node: the DOM object of the cell in the summary table where the checkbox should appear
  * context: the unique ID of the context being toggled by this checkbox
  */
-    var editbox=$("<input type='checkbox' />").
+    var editbox=$("<input type='checkbox'>").
         attr('checked',true);
     if ($(node).parents('tbody').length) { // in the table body
         editbox.
@@ -1270,7 +1270,7 @@ function showcolumnselector(e) {
             $(document.createElement('span')).                  // insert a SPAN into the DIV
                 attr({id:'colpreviewspan'}).
                 append(
-                    $("<input type='checkbox' />").             // the SPAN contains a CHECKBOX
+                    $("<input type='checkbox'>").             // the SPAN contains a CHECKBOX
                         attr({id:'colpreview',name:'colpreview',checked:true})
                 ).
                 append(
@@ -1415,7 +1415,7 @@ GTD.ajax.inititem=function() {
         filter(".creator").find("td.col-ajax").
             addClass("addlink").
             append(
-                $("<img />").attr({
+                $("<img>").attr({
                     alt  : "Create a new child",
                     src  : GTD.ajax.dir + "ajaxedit.gif",
                     title: "Create a new child"
@@ -1485,7 +1485,7 @@ GTD.ajax.setNoChildren=function(tables) {
 
         // and now add an ajax button to the no-children text, which will hide the text, display the table, and trigger the creation
         nochild.prepend(
-            $('<img />').attr({
+            $('<img>').attr({
                     alt  :'Create a new child',
                     id   :'i'+tableid,
                     src  :GTD.ajax.dir+'ajaxedit.gif',

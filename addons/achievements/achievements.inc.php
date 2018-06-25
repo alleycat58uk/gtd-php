@@ -111,7 +111,7 @@ if ($cangraph) {
 <?php if ($cangraph) { ?>
     <h2>Number of completed actions per week</h2>
     <div>
-    <img src='<?php echo htmlspecialchars($addon['urlprefix'],ENT_QUOTES); ?>graph.php' alt='chart of rate of completed actions by week' />
+    <img src='<?php echo htmlspecialchars($addon['urlprefix'],ENT_QUOTES); ?>graph.php' alt='chart of rate of completed actions by week'>
     </div>
 <?php
 }
