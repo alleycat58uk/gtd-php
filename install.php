@@ -133,12 +133,14 @@ $areUpdating=false;
 $wantToDelete=false;
 $areDeleting=false;
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-		  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-<title>gtd-php installer</title>
+    <!doctype html>
+    <html lang="en">
+
+    <head>
+        <meta charset="{$_SESSION['config']['charset']}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>gtd-php installer</title>
 <?php if (_DEBUG) { ?>
     <style type='text/css'>pre,.debug {}</style>
     <script type='text/javascript'>
@@ -214,6 +216,10 @@ else {
 ?>
 
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+
 </body>
 </html>
 <?php
@@ -670,7 +676,10 @@ function failDuringCheck() {
             echo "<p class='error'>Failed during check, at the '$checkState' stage</p>\n";
             break;
     }
-    echo "</div></body></html>";
+    echo "</div>";
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>';
+    echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>';
+    echo "</body></html>";
 }
 /*
    ======================================================================================
@@ -793,7 +802,10 @@ function cleanup($message='cleaning up the mess') {
 	if ($install_success) return $message;
 
 	foreach($rollback as $query) send_query($query,false);
-	echo "<p class='error'>Installation aborted, and cleanup done - <a href='install.php'>return to main install screen</a></p></div></body></html>";
+	echo "<p class='error'>Installation aborted, and cleanup done - <a href='install.php'>return to main install screen</a></p></div>";
+    echo '<script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script>';
+    echo '<script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js\" integrity=\"sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T\" crossorigin=\"anonymous\"></script>';
+    echo "</body></html>";
 	return $message;
 }
 /*

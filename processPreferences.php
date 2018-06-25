@@ -85,5 +85,10 @@ $result=saveConfig(); // store preferences in the table
 $_SESSION['message'][]= ($result) ? 'Preferences updated' : 'No changes made to preferences stored in database';
 
 nextScreen('index.php');
-if ($html) echo '</body></html>';
+if ($html) {
+    echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>';
+    echo '<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>';
+    echo '</body>';
+    echo '</html>';
+}
 // php closing tag has been omitted deliberately, to avoid unwanted blank lines being sent to the browser
